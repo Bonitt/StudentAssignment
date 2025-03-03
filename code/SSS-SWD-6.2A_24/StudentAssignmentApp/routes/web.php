@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,18 +29,13 @@ Route::get('/colleges/{id}/edit', function ($id) {
     return "<h1>Edit college with id: $id</h1>";
 })->name('colleges.edit');
 
-Route::get('/students', function(){
-    return view('students.index');
-})->name('students.index');
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
-Route::get('/students/create', function () {
-    return view('students.create');
-})->name('students.create');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
-Route::get('/contacts/{id}', function ($id) {
-    $student = App\Models\Student::find($id);
-    return view('students.show', compact('student'));
-})->name('students.show');
+Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
+
+
 
 
 Route::get('/students/{id}/edit', function ($id) {
