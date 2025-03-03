@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/colleges', function () {
     return "<h1>All Colleges</h1>";
 })->name('colleges.index');
@@ -33,8 +37,9 @@ Route::get('/students/create', function () {
     return view('students.create');
 })->name('students.create');
 
-Route::get('/students/{id}', function ($id) {
-    return view('students.show');
+Route::get('/contacts/{id}', function ($id) {
+    $student = App\Models\Student::find($id);
+    return view('students.show', compact('student'));
 })->name('students.show');
 
 
