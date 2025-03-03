@@ -26,12 +26,17 @@ Route::get('/colleges/{id}/edit', function ($id) {
 })->name('colleges.edit');
 
 Route::get('/students', function(){
-    return "<h1>All Students</h1>";
+    return view('students.index');
 })->name('students.index');
 
 Route::get('/students/create', function () {
-    return "<h1>Add new student</h1>";
+    return view('students.create');
 })->name('students.create');
+
+Route::get('/students/{id}', function ($id) {
+    return view('students.show');
+})->name('students.show');
+
 
 Route::get('/students/{id}/edit', function ($id) {
     return "<h1>Edit student with id: $id</h1>";
