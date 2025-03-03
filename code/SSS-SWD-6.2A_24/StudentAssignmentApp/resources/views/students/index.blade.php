@@ -273,8 +273,8 @@
                             </div>                     
                         </div>
                     </div>
-                    
-                    <table class="table table-striped table-hover">                        
+                    <table class="table table-striped table-hover">   
+                        @include('students._filter')
                         <thead>
                             <tr>
                                 <th>#</th>
